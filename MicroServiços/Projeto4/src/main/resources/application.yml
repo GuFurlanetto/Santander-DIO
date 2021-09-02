@@ -1,0 +1,11 @@
+
+spring:
+  application:
+    name: product-catalog
+
+  cloud:
+    config:
+      uri: https://localhost/:8888
+
+
+
