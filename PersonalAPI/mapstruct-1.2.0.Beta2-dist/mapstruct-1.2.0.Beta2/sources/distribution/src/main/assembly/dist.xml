@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+     Copyright 2012-2017 Gunnar Morling (http://www.gunnarmorling.de/)
+     and/or other contributors as indicated by the @authors tag. See the
+     copyright.txt file in the distribution for a full listing of all
+     contributors.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+-->
+<assembly>
+    <id>dist</id>
+    <formats>
+        <format>tar.gz</format>
+        <format>zip</format>
+        <format>dir</format>
+    </formats>
+
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+            <includes>
+                <include>org.mapstruct:mapstruct</include>
+                <include>org.mapstruct:mapstruct-jdk8</include>
+                <include>org.mapstruct:mapstruct-processor</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+
+    <files>
+        <file>
+            <source>../CONTRIBUTING.md</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+        <file>
+            <source>../copyright.txt</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+        <file>
+            <source>../LICENSE.txt</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+        <file>
+            <source>../readme.md</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+        <file>
+            <source>target/freemarker-unpacked/META-INF/NOTICE.txt</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+        <file>
+            <source>target/freemarker-unpacked/META-INF/LICENSE.txt</source>
+            <outputDirectory>etc/freemarker</outputDirectory>
+        </file>
+        <file>
+            <source>../documentation/target/generated-docs/mapstruct-reference-guide.html</source>
+            <outputDirectory>docs/reference/html</outputDirectory>
+        </file>
+        <file>
+            <source>../documentation/target/generated-docs/mapstruct-reference-guide.pdf</source>
+            <outputDirectory>docs/reference/pdf</outputDirectory>
+        </file>
+    </files>
+
+    <fileSets>
+        <fileSet>
+            <directory>..</directory>
+            <outputDirectory>sources</outputDirectory>
+            <useDefaultExcludes>true</useDefaultExcludes>
+            <excludes>
+                <exclude>../*/target/**</exclude>
+            </excludes>
+            <includes>
+                <include>../CONTRIBUTING.md</include>
+                <include>../copyright.txt</include>
+                <include>../LICENSE.txt</include>
+                <include>../pom.xml</include>
+                <include>../readme.md</include>
+                <include>../etc/license.txt</include>
+                <include>../*/pom.xml</include>
+                <include>../*/src/**</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>target/site/apidocs</directory>
+            <outputDirectory>docs/api</outputDirectory>
+        </fileSet>
+
+    </fileSets>
+</assembly>
